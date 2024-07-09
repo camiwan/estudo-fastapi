@@ -1,0 +1,87 @@
+GET http://127.0.0.1:8000/clients/
+
+###
+
+#busca pelo id
+GET http://127.0.0.1:8000/clients/1
+
+###
+
+#busca pelo nome
+GET http://127.0.0.1:8000/clients/client/Roberto
+
+
+###
+# CRIAR REGISTRO
+POST http://127.0.0.1:8000/clients
+
+{
+    "name": "Ana",
+    "age": "40 anos",
+    "info_professional": [
+        {
+            "training": "Engenheira de Software",
+            "institution": "Universidade São Paulo (USP)",
+            "company_work": "Google"
+        }
+    ]
+}
+
+###
+
+#ATUALIZAR 
+
+PUT http://127.0.0.1:8000/clients/7
+
+{
+    "name": "Roberto",
+    "age": "26 anos",
+    "info_professional": [
+        {
+            "training": "Matemático",
+            "institution": "Universidade Federal do Paraná (UFPR)",
+            "company_work": "Instituto Tecnológico de Aeronáutica - ITA (PR)"
+        }
+    ]
+}
+
+###
+
+#DELETAR POR ID
+DELETE http://127.0.0.1:8000/clients/1 
+
+### Cadastrar um novo usuário
+###
+# CRIAR login e senha
+POST http://127.0.0.1:8000/users/
+{
+    "email": "cami@gmail.com",
+    "password": "321"
+    
+}
+
+###
+GET http://127.0.0.1:8000/users/
+
+###REQUISIÇAO PARA LOGIN DE USER
+
+### Login de Usuário
+POST http://127.0.0.1:8000/users/login
+Content-Type: application/json
+
+{
+    "email": "wander@gmail.com",
+    "password": "123"
+}
+
+### Requisição para Alteração de Senha
+PUT http://127.0.0.1:8000/users/change-password
+Content-Type: application/json
+
+{
+    "user_id": 2,
+    "old_password": "321",
+    "new_password": "100"
+}
+
+
